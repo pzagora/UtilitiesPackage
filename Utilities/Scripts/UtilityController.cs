@@ -8,7 +8,7 @@ using Utilities.SingletonMonoBehaviour;
 
 namespace Utilities
 {
-    public class Utilities : SingletonMonoBehaviour<Utilities>, IUtilities
+    public partial class UtilityController : SingletonMonoBehaviour<UtilityController>, IPersistentContainerIgnore
     {
         [SerializeField] private bool enablePersistentDataContainer;
         
@@ -18,7 +18,7 @@ namespace Utilities
         protected override void OnRegister()
         {
             base.OnRegister();
-            gameObject.name = string.Format(UtilsConstants.BETWEEN_BRACKETS, nameof(Utilities));
+            gameObject.name = string.Format(ConstantMessages.BETWEEN_BRACKETS, nameof(UtilityController));
             SpawnGroups();
 
             if (enablePersistentDataContainer)
@@ -55,7 +55,7 @@ namespace Utilities
             }
         }
 
-        private void CreatePersistentDataContainer()
+        private static void CreatePersistentDataContainer()
         {
             var persistentDataContainer = new GameObject(nameof(PersistentDataContainer));
             persistentDataContainer.AddComponent<PersistentDataContainer>();

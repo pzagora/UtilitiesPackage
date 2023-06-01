@@ -1,7 +1,6 @@
 namespace Utilities
 {
-    public interface IUtilities
+    public interface IPersistentContainerIgnore
     {
-        
     }
 }

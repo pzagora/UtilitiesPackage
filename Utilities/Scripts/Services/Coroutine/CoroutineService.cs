@@ -17,13 +17,13 @@ namespace Utilities.Services.Coroutine
 
         public CoroutineService()
         {
-            if (Utilities.Instance.IsNull())
+            if (UtilityController.Instance.IsNull())
             {
                 return;
             }
 
-            _coroutineManager = Utilities.Instance
-                .RegisterManager(this, AppUtilsGroup.Managers, UtilsConstants.MANAGER_COROUTINE);
+            _coroutineManager = UtilityController.Instance
+                .RegisterManager(this, AppUtilsGroup.Managers, ConstantMessages.MANAGER_COROUTINE);
         }
 
         public Guid StartCoroutine(IEnumerator enumerator)

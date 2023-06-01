@@ -36,7 +36,7 @@ namespace Utilities.ValidatedMonoBehaviour
                 if (fieldInfo.GetValue(this) != null) 
                     continue;
                     
-                missingReferenceExceptions.Add(string.Format(UtilsConstants.FIELD_NULL, this, fieldInfo.Name));
+                missingReferenceExceptions.Add(string.Format(ConstantMessages.FIELD_NULL, this, fieldInfo.Name));
             }
 
             if (!missingReferenceExceptions.Any()) 

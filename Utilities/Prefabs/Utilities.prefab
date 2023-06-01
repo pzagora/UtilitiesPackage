@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfc98c0cabd26c4ea589e604d71233b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enablePersistentDataContainer: 0
+  enablePersistentDataContainer: 1

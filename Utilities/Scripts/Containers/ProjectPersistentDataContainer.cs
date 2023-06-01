@@ -2,7 +2,7 @@ using Utilities.SingletonMonoBehaviour;
 
 namespace Utilities
 {
-    public class PersistentDataContainer : SingletonMonoBehaviour<PersistentDataContainer>, IUtilities
+    public class PersistentDataContainer : SingletonMonoBehaviour<PersistentDataContainer>, IPersistentContainerIgnore
     {
     }
 }

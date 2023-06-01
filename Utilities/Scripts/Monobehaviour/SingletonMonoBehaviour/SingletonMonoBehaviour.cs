@@ -42,7 +42,7 @@ namespace Utilities.SingletonMonoBehaviour
             transform.parent = null;
             DontDestroyOnLoad(this);
 
-            if (this is IUtilities) 
+            if (this is IPersistentContainerIgnore) 
                 return;
             
             var persistentDataContainer = PersistentDataContainer._instance;

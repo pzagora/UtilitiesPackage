@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Utilities.Services.Coroutine
 {
-    public interface ICoroutineService
+    public interface ICoroutineService : IService
     {
         public Guid StartCoroutine(IEnumerator enumerator);
         public UnityEngine.Coroutine GetCoroutine(Guid guid);
