@@ -1,6 +1,6 @@
 using UnityEditor;
 using UnityEngine;
-using Utilities.Animations;
+using Utilities.Models.Animations;
 
 namespace Utilities.Editor.Views
 {

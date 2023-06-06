@@ -1,6 +1,6 @@
-using Utilities.SingletonMonoBehaviour;
+using Utilities.Mono;
 
-namespace Utilities
+namespace Utilities.Containers
 {
     public class PersistentDataContainer : SingletonMonoBehaviour<PersistentDataContainer>, IPersistentContainerIgnore
     {

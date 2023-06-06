@@ -2,9 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+using Utilities.Attributes;
 using Utilities.Constants;
 
-namespace Utilities.ValidatedMonoBehaviour
+namespace Utilities.Mono
 {
     public abstract class ValidatedMonoBehaviour : MonoBehaviour
     {

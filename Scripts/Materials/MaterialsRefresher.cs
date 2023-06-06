@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Utilities.MaterialsRefresher
+namespace Utilities.Materials
 {
     public static class AssetBundleMaterialsRefresher
     {

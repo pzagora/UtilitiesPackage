@@ -1,10 +1,10 @@
 using System;
-using UnityEngine;
+using Utilities.Containers;
 using Utilities.Extensions;
 
-namespace Utilities.SingletonMonoBehaviour
+namespace Utilities.Mono
 {
-    public abstract class SingletonMonoBehaviour<T> : ValidatedMonoBehaviour.ValidatedMonoBehaviour where T : ValidatedMonoBehaviour.ValidatedMonoBehaviour
+    public abstract class SingletonMonoBehaviour<T> : ValidatedMonoBehaviour where T : ValidatedMonoBehaviour
     {
         private static T _instance;
 

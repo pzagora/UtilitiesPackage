@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Utilities.Animations
+namespace Utilities.Models.Animations
 {
     [Serializable]
     public class ViewAnimations

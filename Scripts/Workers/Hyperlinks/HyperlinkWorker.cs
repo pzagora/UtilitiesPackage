@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Utilities.Attributes;
 using Utilities.Constants;
 using Utilities.Enums;
 
