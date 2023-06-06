@@ -4,6 +4,7 @@ using Utilities.Services.ViewManagement.Views;
 
 namespace Utilities.Editor.Views
 {
+#if UNITY_EDITOR
 	[CustomEditor(typeof(ViewBehaviour), true)]
 	[CanEditMultipleObjects]
 	public class ViewBehaviourEditor : UnityEditor.Editor
@@ -41,4 +42,5 @@ namespace Utilities.Editor.Views
 			serializedObject.ApplyModifiedProperties();
 		}
 	}
+#endif
 }
