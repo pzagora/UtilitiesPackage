@@ -1,6 +1,6 @@
 using strange.extensions.mediation.impl;
 using UnityEngine;
-using Utilities.Animations;
+using Utilities.Models.Animations;
 
 namespace Utilities.Services.ViewManagement.Views
 {

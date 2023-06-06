@@ -1,6 +1,6 @@
 using System;
 
-namespace Utilities
+namespace Utilities.Attributes
 {
     /// <summary>
     /// Flag that automatically makes sure selected variables are assigned and/or initialized.<para />
