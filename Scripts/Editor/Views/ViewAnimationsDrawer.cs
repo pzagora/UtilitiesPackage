@@ -4,6 +4,7 @@ using Utilities.Models.Animations;
 
 namespace Utilities.Editor.Views
 {
+#if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(ViewAnimations))]
     public class ViewAnimationsDrawer : PropertyDrawer
     {
@@ -33,4 +34,5 @@ namespace Utilities.Editor.Views
             EditorGUI.EndProperty();
         }
     }
+#endif
 }

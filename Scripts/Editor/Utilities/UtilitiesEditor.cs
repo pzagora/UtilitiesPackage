@@ -6,6 +6,7 @@ using Utilities.Extensions;
 
 namespace Utilities.Editor.Utilities
 {
+#if UNITY_EDITOR
 	[CustomEditor(typeof(UtilityController))]
 	[CanEditMultipleObjects]
 	public class UtilitiesEditor : UnityEditor.Editor
@@ -56,4 +57,5 @@ namespace Utilities.Editor.Utilities
 			serializedObject.ApplyModifiedProperties();
 		}
 	}
+#endif
 }
