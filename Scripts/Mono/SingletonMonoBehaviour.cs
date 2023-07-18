@@ -21,6 +21,14 @@ namespace Utilities.Mono
             }
         }
 
+        public static T TryGetInstance()
+        {
+            if (_instance == null)
+                return null;
+
+            return _instance;
+        }
+
         private void Awake()
         {
             if (_instance == null)
