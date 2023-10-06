@@ -28,6 +28,9 @@ namespace Utilities.Constants
         // Default
         public const string NOT_INITIALIZED = "[{0}] {1} not initialized!";
         
+        // SingletonMonoBehaviour Errors
+        public const string SMB_INSTANCE_NULL = "Instance is NULL. Maybe you didn't add it to the scene?";
+        
         // ValidatedMonoBehaviour Errors
         public const string VMB_FIELD_NULL = "[{0}] Required variable \"{1}\" is NULL!";
         

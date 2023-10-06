@@ -18,7 +18,7 @@ namespace Utilities.Services.ViewManagement
                 return;
             }
 
-            UtilityController.Instance.RegisterManager(this, AppUtilsGroup.Managers, ConstantMessages.MANAGER_VIEWS);
+            UtilityController.Instance.RegisterManager(this, UtilitiesGroup.Managers, ConstantMessages.MANAGER_VIEWS);
         }
         
         public T Show<T>() where T : ViewBehaviour
