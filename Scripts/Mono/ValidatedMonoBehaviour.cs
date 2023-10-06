@@ -37,7 +37,7 @@ namespace Utilities.Mono
                 if (fieldInfo.GetValue(this) != null) 
                     continue;
                     
-                missingReferenceExceptions.Add(string.Format(ConstantMessages.FIELD_NULL, this, fieldInfo.Name));
+                missingReferenceExceptions.Add(string.Format(ConstantMessages.VMB_FIELD_NULL, this, fieldInfo.Name));
             }
 
             if (!missingReferenceExceptions.Any()) 

@@ -28,9 +28,9 @@ namespace Utilities
 
         public MonoBehaviour RegisterManager<T>(T managerOrigin, AppUtilsGroup managerGroup, string managerName) where T : class
         {
-            if (_managers.ContainsKey(managerOrigin))
+            if (_managers.TryGetValue(managerOrigin, out var manager))
             {
-                return _managers[managerOrigin];
+                return manager;
             }
             
             var newManager = new GameObject(managerName)

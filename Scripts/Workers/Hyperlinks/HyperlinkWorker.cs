@@ -12,15 +12,15 @@ namespace Utilities.Workers.Hyperlinks
     public class HyperlinkWorker : Worker, IPointerClickHandler
     {
         [Required] private TMP_Text _text;
-        [Required] private Camera _camera;
         [Required] private Canvas _canvas;
+        
+        private Camera _camera;
         
         private HyperlinkType _hyperlinkType = HyperlinkType.Unknown;
 
         private void Awake()
         {
             _text ??= GetComponent<TMP_Text>();
-            _camera ??= Camera.main;
             _canvas ??= gameObject.GetComponentInParent<Canvas>();
             
             _camera = _canvas.renderMode == RenderMode.ScreenSpaceOverlay 
@@ -35,6 +35,8 @@ namespace Utilities.Workers.Hyperlinks
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            _camera ??= Camera.main;
+            
             var linkIndex = TMP_TextUtilities.FindIntersectingLink(_text, Input.mousePosition, _camera);
             if (linkIndex < 0 || linkIndex >= _text.textInfo.linkInfo.Length) 
                 return;
