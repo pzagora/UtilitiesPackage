@@ -17,11 +17,29 @@ namespace Utilities.Constants
 
         #endregion
         
+        #region OBJECT POOL
+        
+        public const string OBJECT_POOL_PARENT_NAME = "[ POOL <{0}> ]";
+
+        #endregion
+        
         #region ERRORS
 
+        // Default
+        public const string NOT_INITIALIZED = "[{0}] {1} not initialized!";
+        
+        // ValidatedMonoBehaviour Errors
+        public const string VMB_FIELD_NULL = "[{0}] Required variable \"{1}\" is NULL!";
+        
+        // Services Errors
+        public const string SERVICE_BIND_EMPTY = "No selected services in the Utilities controller prefab. Binding context is pointless if no service will be used!";
         public const string SERVICE_SPAWN_ERROR = "Spawning services failed. Utilities package will not work!";
-        public const string FIELD_NULL = "Required variable \"{0}\" is NULL!";
+        
+        // Hyperlink Errors
         public const string HYPERLINK_UNKNOWN = "Unknown hyperlink action clicked!";
+        
+        // Object Pool Errors
+        public const string OBJECT_POOL_TYPE_NOT_SUPPORTED = "[{0}] {1} is not supported! Please create child class for advanced usages.";
 
         #endregion
         

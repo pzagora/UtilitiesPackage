@@ -17,6 +17,9 @@ namespace Utilities
         {
             var services = GetSortedServices();
 
+            if (!services.Any() && !_enabledServices.Any())
+                throw new Exception(ConstantMessages.SERVICE_BIND_EMPTY);
+            
             if (services.Count != _enabledServices.Count)
                 throw new Exception(ConstantMessages.SERVICE_SPAWN_ERROR);
 
@@ -54,7 +57,9 @@ namespace Utilities
                 sortedServices.Add(new ValueTuple<Type, Type>(interfaces[i], classes[i]));
             }
             
-            return sortedServices.OrderBy(i => i.interfaceType.Name).ToList();;
+            return sortedServices
+                .OrderBy(i => i.interfaceType.Name)
+                .ToList();;
         }
 
         private static List<Type> GetAllServiceTypes()
