@@ -6,11 +6,11 @@ namespace Utilities.Models.Manager
 {
     public class Manager : MonoBehaviour
     {
-        [SerializeField] private AppUtilsGroup group;
+        [SerializeField] private UtilitiesGroup group;
         
         private object _origin;
 
-        public Manager Initialize(object origin, AppUtilsGroup group, Transform parent)
+        public Manager Initialize(object origin, UtilitiesGroup group, Transform parent)
         {
             SetupBasicData(origin, group);
             SetupHierarchy(parent);
@@ -18,7 +18,7 @@ namespace Utilities.Models.Manager
             return this;
         }
         
-        private void SetupBasicData(object origin, AppUtilsGroup utilsGroup)
+        private void SetupBasicData(object origin, UtilitiesGroup utilsGroup)
         {
             _origin = origin;
             group = utilsGroup;

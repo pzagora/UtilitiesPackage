@@ -6,7 +6,11 @@ namespace Utilities.Extensions
 {
     public static class StringExtensions
     {
+        #region FIELDS
+        
         private const string CamelCasePattern = @"(?<!^)(?=[A-Z])";
+
+        #endregion
         
         /// <param name="input">The input to parse.</param>
         /// <returns>Returns an input string with first letter transformed to uppercase.</returns>

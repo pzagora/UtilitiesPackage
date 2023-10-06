@@ -6,7 +6,7 @@ namespace Utilities.Extensions
     public static class CanvasGroupExtensions
     {
         /// <summary>
-        /// Enables given CanvasGroup
+        /// Enables given CanvasGroup.
         /// </summary>
         /// <param name="input">The input to parse.</param>
         public static void Show(this CanvasGroup input)
@@ -15,7 +15,7 @@ namespace Utilities.Extensions
         }
         
         /// <summary>
-        /// Disables given CanvasGroup
+        /// Disables given CanvasGroup.
         /// </summary>
         /// <param name="input">The input to parse.</param>
         public static void Hide(this CanvasGroup input)
@@ -24,7 +24,7 @@ namespace Utilities.Extensions
         }
         
         /// <summary>
-        /// Toggles given CanvasGroup
+        /// Toggles given CanvasGroup.
         /// </summary>
         /// <param name="input">The input to parse.</param>
         /// <param name="isEnabled">State to set for input CanvasGroup</param>

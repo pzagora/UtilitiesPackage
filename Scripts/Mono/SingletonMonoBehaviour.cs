@@ -1,4 +1,5 @@
 using System;
+using Utilities.Constants;
 using Utilities.Containers;
 using Utilities.Extensions;
 
@@ -13,20 +14,10 @@ namespace Utilities.Mono
             get
             {
                 if (_instance == null)
-                {
-                    throw new Exception("Instance is NULL. Maybe you didn't add it to the scene?");
-                }
+                    throw new NullReferenceException(ConstantMessages.SMB_INSTANCE_NULL);
 
                 return _instance;
             }
-        }
-
-        public static T TryGetInstance()
-        {
-            if (_instance == null)
-                return null;
-
-            return _instance;
         }
 
         private void Awake()

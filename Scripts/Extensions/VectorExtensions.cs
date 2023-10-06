@@ -12,7 +12,6 @@ namespace Utilities.Extensions
         /// <param name="vector">Vector2 to ignore component in.</param>
         /// <param name="component">Vector2 component to ignore.</param>
         /// <returns>Returns Vector2 with given component set to 0.</returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static Vector2 IgnoreComponent(this Vector2 vector, Vector2Component component)
         {
             return component switch
@@ -29,7 +28,6 @@ namespace Utilities.Extensions
         /// <param name="vector">Vector3 to ignore component in.</param>
         /// <param name="component">Vector3 component to ignore.</param>
         /// <returns>Returns Vector3 with given component set to 0.</returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static Vector3 IgnoreComponent(this Vector3 vector, Vector3Component component)
         {
             return component switch

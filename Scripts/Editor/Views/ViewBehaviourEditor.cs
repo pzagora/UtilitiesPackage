@@ -9,10 +9,20 @@ namespace Utilities.Editor.Views
 	[CanEditMultipleObjects]
 	public class ViewBehaviourEditor : UnityEditor.Editor
 	{
+		#region FIELDS
+		
 		private SerializedProperty _animateView;
 		private SerializedProperty _viewAnimations;
 
-		void OnEnable()
+		#endregion
+
+		#region IMPLEMENTATION OF: 
+
+		
+
+		#endregion
+
+		private void OnEnable()
 		{
 			_animateView = serializedObject.FindProperty("animateView");
 			_viewAnimations = serializedObject.FindProperty("viewAnimations");

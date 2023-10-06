@@ -7,21 +7,24 @@ using Utilities.Workers.Hyperlinks;
 
 namespace Utilities.Services.Hyperlink
 {
+    // TODO: Refactor HyperlinkService
+    
     public class HyperlinkService : IHyperlinkService
     {
+        /// <summary>
+        /// Constructor for <see cref="HyperlinkService"/>
+        /// </summary>
         public HyperlinkService()
         {
             if (UtilityController.Instance.IsNull())
-            {
                 return;
-            }
 
-            UtilityController.Instance.RegisterManager(this, AppUtilsGroup.Managers, ConstantMessages.MANAGER_HYPERLINK);
+            UtilityController.Instance.RegisterManager(this, UtilitiesGroup.Managers, ConstantMessages.MANAGER_HYPERLINK);
         }
 
         public void EnableHyperlinks(List<TMP_Text> texts)
         {
-            if (!texts.IsValid()) 
+            if (texts.IsNullOrEmpty()) 
                 return;
             
             texts.ForEach(EnableHyperlinks);
@@ -37,7 +40,7 @@ namespace Utilities.Services.Hyperlink
         
         public void DisableHyperlinks(List<TMP_Text> texts)
         {
-            if (!texts.IsValid()) 
+            if (texts.IsNullOrEmpty()) 
                 return;
             
             texts.ForEach(DisableHyperlinks);
