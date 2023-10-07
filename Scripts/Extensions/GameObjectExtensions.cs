@@ -5,16 +5,19 @@ namespace Utilities.Extensions
     public static class GameObjectExtensions
     {
         /// <summary>
-        /// Gets component if present on the GameObject or adds it.
+        /// Gets component if present on the GameObject or adds it, and checks if its NULL.
         /// </summary>
         /// <param name="gameObject">Object to perform operation on.</param>
+        /// <param name="component">Output component.</param>
         /// <typeparam name="T">Component Type to add or get</typeparam>
-        /// <returns>Requested component</returns>
-        public static T AddOrGetComponent<T>(this GameObject gameObject) where T : Component
+        /// <returns>True if component is successfully retrieved, false otherwise.</returns>
+        public static bool AddOrGetComponent<T>(this GameObject gameObject, out T component) where T : Component
         {
-            return gameObject.TryGetComponent<T>(out var component) 
-                ? component 
+            component = gameObject.TryGetComponent<T>(out var attachedComponent)
+                ? attachedComponent
                 : gameObject.AddComponent<T>();
+
+            return component.NotNull();
         }
     }
 }
