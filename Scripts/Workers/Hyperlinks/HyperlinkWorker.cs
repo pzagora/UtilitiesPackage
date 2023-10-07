@@ -28,6 +28,7 @@ namespace Utilities.Workers.Hyperlinks
 
         private void Awake()
         {
+            _camera ??= Camera.main;
             _text ??= GetComponent<TMP_Text>();
             _canvas ??= gameObject.GetComponentInParent<Canvas>();
 
@@ -52,8 +53,6 @@ namespace Utilities.Workers.Hyperlinks
         /// <param name="eventData">Data passed on pointer click.</param>
         public void OnPointerClick(PointerEventData eventData)
         {
-            _camera ??= Camera.main;
-
             var linkIndex = TMP_TextUtilities.FindIntersectingLink(_text, Input.mousePosition, _camera);
             if (linkIndex < 0 || linkIndex >= _text.textInfo.linkInfo.Length)
                 return;
