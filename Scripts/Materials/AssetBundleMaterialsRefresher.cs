@@ -4,8 +4,15 @@ using UnityEngine.UI;
 
 namespace Utilities.Materials
 {
+    /// <summary>
+    /// Class for editor asset bundle materials fix.
+    /// </summary>
     public static class AssetBundleMaterialsRefresher
     {
+        /// <summary>
+        /// Method used to fix materials from asset bundles in editor to allow preview
+        /// </summary>
+        /// <param name="gameObject">Root game object of hierarchy to fix.</param>
         public static void FixShadersForEditor(GameObject gameObject)
         {
 #if UNITY_EDITOR
@@ -15,8 +22,8 @@ namespace Utilities.Materials
                 ReplaceShaderForEditor(renderer.sharedMaterials);
             }
 
-            var tmps = gameObject.GetComponentsInChildren<TextMeshProUGUI>(true);
-            foreach (var tmp in tmps)
+            var tmpTexts = gameObject.GetComponentsInChildren<TextMeshProUGUI>(true);
+            foreach (var tmp in tmpTexts)
             {
                 ReplaceShaderForEditor(tmp.material);
                 ReplaceShaderForEditor(tmp.materialForRendering);
@@ -52,9 +59,9 @@ namespace Utilities.Materials
 #if UNITY_EDITOR
         private static void ReplaceShaderForEditor(Material[] materials)
         {
-            foreach (var t in materials)
+            foreach (var mat in materials)
             {
-                ReplaceShaderForEditor(t);
+                ReplaceShaderForEditor(mat);
             }
         }
 

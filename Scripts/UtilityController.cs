@@ -11,10 +11,36 @@ namespace Utilities
 {
     public partial class UtilityController : SingletonMonoBehaviour<UtilityController>, IPersistentContainerIgnore
     {
+        #region FIELDS
+
         [SerializeField] private bool enablePersistentDataContainer;
         
-        private readonly Dictionary<AppUtilsGroup, Transform> _appUtilsGroups = new();
+        private readonly Dictionary<UtilitiesGroup, Transform> _appUtilsGroups = new();
         private readonly Dictionary<object, Manager> _managers = new();
+        
+        #endregion
+
+        #region PUBLIC METHODS
+        
+        public MonoBehaviour RegisterManager<T>(T managerOrigin, UtilitiesGroup managerGroup, string managerName) where T : class
+        {
+            if (_managers.TryGetValue(managerOrigin, out var manager))
+            {
+                return manager;
+            }
+            
+            var newManager = new GameObject(managerName)
+                .AddComponent<Manager>()
+                .Initialize(managerOrigin, managerGroup, _appUtilsGroups[managerGroup]);
+            
+            _managers.Add(managerOrigin, newManager);
+            
+            return newManager;
+        }
+        
+        #endregion
+
+        #region PROTECTED METHODS
 
         protected override void OnRegister()
         {
@@ -26,28 +52,16 @@ namespace Utilities
                 CreatePersistentDataContainer();
         }
 
-        public MonoBehaviour RegisterManager<T>(T managerOrigin, AppUtilsGroup managerGroup, string managerName) where T : class
-        {
-            if (_managers.ContainsKey(managerOrigin))
-            {
-                return _managers[managerOrigin];
-            }
-            
-            var newManager = new GameObject(managerName)
-                .AddComponent<Manager>()
-                .Initialize(managerOrigin, managerGroup, _appUtilsGroups[managerGroup]);
-            
-            _managers.Add(managerOrigin, newManager);
-            
-            return newManager;
-        }
+        #endregion
 
+        #region PRIVATE METHODS
+        
         private void SpawnGroups()
         {
-            var values = (AppUtilsGroup[]) Enum.GetValues(typeof(AppUtilsGroup));
+            var values = (UtilitiesGroup[]) Enum.GetValues(typeof(UtilitiesGroup));
             foreach (var group in values)
             {
-                var groupName = Enum.GetName(typeof(AppUtilsGroup), group);
+                var groupName = Enum.GetName(typeof(UtilitiesGroup), group);
                 var groupTransform = new GameObject(groupName).transform;
                 groupTransform.SetParent(transform);
                 groupTransform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
@@ -63,5 +77,7 @@ namespace Utilities
             
             persistentDataContainer.transform.SetSiblingIndex(0);
         }
+
+        #endregion
     }
 }

@@ -11,27 +11,14 @@ namespace Utilities.Editor.Utilities
 	[CanEditMultipleObjects]
 	public class UtilitiesEditor : UnityEditor.Editor
 	{
+		#region FIELDS
+
 		private SerializedProperty _enabledServices;
 		private List<(Type interfaceType, Type classType)> _services;
+		
+		#endregion
 
-		void OnEnable()
-		{
-			_enabledServices = serializedObject.FindProperty("enabledServicesHelper");
-			_services = UtilityController.GetSortedServices();
-
-			if (!_enabledServices.isArray || _enabledServices.arraySize >= _services.Count) 
-				return;
-
-			_enabledServices.ClearArray();
-			var startingArraySize = _enabledServices.arraySize;
-			var difference = _services.Count - startingArraySize;
-			for (var i = startingArraySize; i < difference; i++)
-			{
-				_enabledServices.InsertArrayElementAtIndex(i);		
-			}
-			
-			serializedObject.ApplyModifiedProperties();
-		}
+		#region IMPLEMENTATION OF: ViewBehaviourEditor
 
 		public override void OnInspectorGUI()
 		{
@@ -56,6 +43,27 @@ namespace Utilities.Editor.Utilities
 
 			serializedObject.ApplyModifiedProperties();
 		}
+		
+		private void OnEnable()
+		{
+			_enabledServices = serializedObject.FindProperty("enabledServicesHelper");
+			_services = UtilityController.GetSortedServices();
+
+			if (!_enabledServices.isArray || _enabledServices.arraySize >= _services.Count) 
+				return;
+
+			_enabledServices.ClearArray();
+			var startingArraySize = _enabledServices.arraySize;
+			var difference = _services.Count - startingArraySize;
+			for (var i = startingArraySize; i < difference; i++)
+			{
+				_enabledServices.InsertArrayElementAtIndex(i);		
+			}
+			
+			serializedObject.ApplyModifiedProperties();
+		}
+		
+		#endregion
 	}
 #endif
 }
