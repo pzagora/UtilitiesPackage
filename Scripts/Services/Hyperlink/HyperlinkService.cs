@@ -32,10 +32,7 @@ namespace Utilities.Services.Hyperlink
 
         public void EnableHyperlinks(TMP_Text text)
         {
-            if (!text.TryGetComponent(out HyperlinkWorker _))
-            {
-                text.gameObject.AddComponent<HyperlinkWorker>();
-            }
+            text.AddOrGetComponent<HyperlinkWorker>(out _);
         }
         
         public void DisableHyperlinks(List<TMP_Text> texts)
