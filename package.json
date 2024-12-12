@@ -3,7 +3,7 @@
   "displayName": "Utilities (zagora.dev)",
   "version": "0.0.1-preview",
   "unity": "2021.3",
-  "description": "The Utilities package provides some useful tools for unity app creation. Designed to work with StrangeIoC.",
+  "description": "The Utilities package provides some useful tools for unity app creation. Designed to work with Init(args) package.",
   "keywords": [
     "utilities"
   ]
